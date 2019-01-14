@@ -25,4 +25,5 @@ In addition you can edit default props in Slider.js.
 I will handle customization of these features in the next version :
 - [ ] margin between between slides
 - [ ] custom animation Easing
+- [ ] custom slide item for children
 - [ ] custom style for wrapper, box of all sliders and slider
