@@ -10,20 +10,28 @@ import Slide from './Slide';
 ```
 ```
 <Slide
+    minNeededMove={45} //doesn't change slider by this amount of movement
+
+    allSlidersCustomStyle={{opacity: 1}} // custom slider for the patent of all sliders, which is as long as sum of all widhts of slides
+    wrapperCustomStyle={{opacity: 1}} // custom style for wrapper (background of slider)
+    sliderCustomStyle={{opacity: 1}} // custom style for slides
+
     slideWidth={width - 100}
     slideBorderRadius={13}
     slideHeight={193}
     slideBackgroundColor={'white'}
+
     wrapperHeight={220}
     wrapperWidth={width - 50}
-    minNeededMove={45}
     wrapperBackgroundColor='rgba(255,255,255,.3)'
     wrapperBorderRadius={15}
-/>
+>
 ```
 In addition you can edit default props in Slider.js.
 I will handle customization of these features in the next version :
+- [X] custom animation Easing
+- [X] custom slide item for children
+- [X] custom style for wrapper, box of all sliders and slider
 - [ ] margin between between slides
-- [ ] custom animation Easing
-- [ ] custom slide item for children
-- [ ] custom style for wrapper, box of all sliders and slider
+
+Tell me your requests and problems : soojibht@gmail.com

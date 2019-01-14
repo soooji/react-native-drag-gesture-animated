@@ -1,6 +1,7 @@
 // By Sajad Beheshti
 import React from 'react';
 import { StyleSheet,View,Easing,Animated,PanResponder,Dimensions,Text} from 'react-native';
+import Slide from './Slide';
 const {width,height} = Dimensions.get('window');
 export default class App extends React.Component {
     _bopacity = new Animated.Value(0.4);
@@ -31,6 +32,29 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.cont}>
+        <View style={styles.sliderBox}>
+            <Slide
+                minNeededMove={45}
+
+                allSlidersCustomStyle={{opacity: 1}}
+                wrapperCustomStyle={{opacity: 1}}
+                sliderCustomStyle={{opacity: 1}}
+
+                slideWidth={width - 100}
+                slideBorderRadius={13}
+                slideHeight={193}
+                slideBackgroundColor={'white'}
+
+                wrapperHeight={220}
+                wrapperWidth={width - 50}
+                wrapperBackgroundColor='rgba(255,255,255,.3)'
+                wrapperBorderRadius={15}
+            >
+                <View></View>
+                <View></View>
+                <View></View>
+            </Slide>
+        </View>
         <Animated.View style={[styles.box,{top:this._top,left:this._left}]} {...this._panResponder.panHandlers}>
         </Animated.View>
         <Animated.View style={[styles.bar,{opacity: this._bopacity}]}>
@@ -44,6 +68,11 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    sliderBox: {
+        top: 25,
+        marginLeft:'auto',
+        marginRight:'auto',
+    },
     text: {
         width: '100%',
         textAlign: 'center',

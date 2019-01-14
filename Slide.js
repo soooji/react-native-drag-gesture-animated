@@ -7,7 +7,8 @@ export default class SJSlider extends React.Component {
         super(props);
         this.state = {
             currentSlide: 1,
-            totalSlides: 3,
+            
+            totalSlides: this.props.children.length ? this.props.children.length : 0,
 
             minNeededMove : this.props.minNeededMove ? this.props.minNeededMove : 45,
             marginBetweenSlides: this.props.marginBetweenSlides ? this.props.marginBetweenSlides : 10,
@@ -44,17 +45,17 @@ export default class SJSlider extends React.Component {
     onPanResponderTerminationRequest: (evt, gestureState) => true,
     onPanResponderRelease: (evt, gestureState) => {
             if(this._detaX > 0 && this._detaX > this.state.minNeededMove) {
-                Animated.timing(this._left, {toValue: this.state.currentSlide != 1 ? this._preLeft+(this.state.slideWidth - this.state.marginBetweenSlides + 15) : 0,duration: 350,useNativeDriver: false,easing:Easing.elastic(1)}).start();
+                Animated.timing(this._left, {toValue: this.state.currentSlide != 1 ? this._preLeft+(this.state.slideWidth - this.state.marginBetweenSlides + 15) : 0,duration: 350,useNativeDriver: false,easing:this.props.easing ? this.props.easing :  Easing.elastic(1)}).start();
                 if(this.state.currentSlide != 1) {
                     this.setState({currentSlide: this.state.currentSlide - 1})
                 }
             } else if(this._detaX < -this.state.minNeededMove) {
-                Animated.timing(this._left, {toValue: this.state.currentSlide != this.state.totalSlides ? this._preLeft-(this.state.slideWidth - this.state.marginBetweenSlides + 15)  : this._preLeft,duration: 350,useNativeDriver: false,easing:Easing.elastic(1)}).start();
+                Animated.timing(this._left, {toValue: this.state.currentSlide != this.state.totalSlides ? this._preLeft-(this.state.slideWidth - this.state.marginBetweenSlides + 15)  : this._preLeft,duration: 350,useNativeDriver: false,easing:this.props.easing ? this.props.easing : Easing.elastic(1)}).start();
                 if(this.state.currentSlide != this.state.totalSlides) {
                     this.setState({currentSlide: this.state.currentSlide + 1})
                 }
             } else {
-                Animated.timing(this._left, {toValue:this._preLeft,duration: 350,useNativeDriver: false,easing:Easing.elastic(1)}).start();
+                Animated.timing(this._left, {toValue:this._preLeft,duration: 350,useNativeDriver: false,easing:this.props.easing ? this.props.easing : Easing.elastic(1)}).start();
             }
     },
     onPanResponderTerminate: (evt, gestureState) => {
@@ -78,11 +79,12 @@ export default class SJSlider extends React.Component {
         borderRadius: wrapperBorderRadius
       }
     return (
-      <Animated.View style={[styles.wrap,wrapperStyle]} {...this._panResponder.panHandlers}>
-        <Animated.View style={[styles.allSlides,{left: this._left}]}>
-            <Animated.View style={[slideStyle]}></Animated.View>
-            <Animated.View style={[slideStyle]}></Animated.View>
-            <Animated.View style={[slideStyle]}></Animated.View>
+      <Animated.View style={[styles.wrap,wrapperStyle,this.props.wrapperCustomStyle ? this.props.wrapperCustomStyle : {}]} {...this._panResponder.panHandlers}>
+        <Animated.View style={[styles.allSlides,{left: this._left},this.props.allSlidersCustomStyle ? this.props.allSlidersCustomStyle : {}]}>
+            {this.props.children.map(
+                (val,k)=>
+                    <Animated.View key={k} style={[slideStyle,this.props.sliderCustomStyle ? this.props.sliderCustomStyle : {}]}>{val}</Animated.View>
+                )}
         </Animated.View>
       </Animated.View>
     );
