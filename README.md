@@ -10,7 +10,7 @@ import Slide from './Slide';
 ```
 ```
 <Slide
-    minNeededMove={45} //doesn't change slider by this amount of movement
+    minNeededMove={45} //current doesn't change slider by this amount of movement
 
     allSlidersCustomStyle={{opacity: 1}} // custom slider for the patent of all sliders, which is as long as sum of all widhts of slides
     wrapperCustomStyle={{opacity: 1}} // custom style for wrapper (background of slider)
