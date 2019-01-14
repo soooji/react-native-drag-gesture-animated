@@ -1,7 +1,7 @@
 # react-native-drag-gesture-animated
 This project includes some animated components using **PanResponder** functions, **Animated** and **Easing**.
 # Demo :
- ![alt tag](preview.gif)
+ ![alt tag](preview-anime.gif)
 - [x] Drag and drop ball (App.js)
 - [x] Slider with lots of customize props (Slider.js)
 ### You can import Slider and set your own customize props to slider like below :
