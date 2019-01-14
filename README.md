@@ -40,5 +40,7 @@ I will handle customization of these features in the next version :
 - [X] custom slide item for children
 - [X] custom style for wrapper, box of all sliders and slider
 - [ ] margin between between slides
+- [ ] seperate the components
+- [ ] create package and npmjs link
 
 Tell me your requests and problems : soojibht@gmail.com
