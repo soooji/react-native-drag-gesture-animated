@@ -16,6 +16,8 @@ import Slide from './Slide';
     wrapperCustomStyle={{opacity: 1}} // custom style for wrapper (background of slider)
     sliderCustomStyle={{opacity: 1}} // custom style for slides
 
+    easing={Easing.elastic(1)} // for custom easing you should import Easing from React
+
     slideWidth={width - 100}
     slideBorderRadius={13}
     slideHeight={193}
