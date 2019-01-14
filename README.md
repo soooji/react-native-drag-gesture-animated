@@ -4,6 +4,10 @@ This project includes some animated components using **PanResponder** functions,
  ![alt tag](preview-anime.gif)
 - [x] Drag and drop ball (App.js)
 - [x] Slider with lots of customize props (Slider.js)
+### Install Slider :
+```
+npm i react-native-sooji-slider --save
+```
 ### You can import Slider and set your own customize props to slider like below :
 ```
 import Slide from './Slide';
