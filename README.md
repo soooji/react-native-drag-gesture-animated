@@ -33,7 +33,7 @@ import Slide from './Slide';
         <View></View>
 </Slide>
 ```
-You can add your slides as children of Slide component. For example in the top instance we have three slides. (View)
+You can add your slides as children of Slide component. For example in the top instance we have three slides.
 In addition you can edit default props in Slider.js.
 I will handle customization of these features in the next version :
 - [X] custom animation Easing
